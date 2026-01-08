@@ -4,7 +4,7 @@ on:
         branches:
             - main
         paths:
-            - 'dotnetapp/**'
+            - 'dotnetwebapp/**'
             - '.github/workflows/dotnet-app.yml'
     pull_request:
         branches:
