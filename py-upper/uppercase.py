@@ -12,6 +12,6 @@ if __name__ == "__main__":
     else:
         mode = sys.argv[1] if sys.argv[1] in ["-U", "-L"] else "-U"
         text = sys.argv[2] if mode in ["-U", "-L"] else sys.argv[1]
-
+ 
         result = to_upper(text) if mode == "-U" else to_lower(text)
         print(result)
