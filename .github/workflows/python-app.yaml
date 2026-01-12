@@ -45,3 +45,27 @@ jobs:
       - name: Run tests
         working-directory: py-upper
         run: pytest -v  
+
+  build:
+    runs-on: ubuntu-latest
+    needs: test
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+ 
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.14.2'
+
+      - name: Install Python dependencies
+        uses: py-actions/py-dependency-install@v4
+        with:
+          path: "py-upper/requirements.txt"
+          update-pip: "true"
+
+      - name: Build project
+        run: pyinstaller --onefile py-upper/uppercase.py
+
+      - name: List build output
+        run: ls -R dist/
